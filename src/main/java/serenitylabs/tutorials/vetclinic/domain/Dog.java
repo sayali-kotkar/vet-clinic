@@ -1,11 +1,13 @@
 package serenitylabs.tutorials.vetclinic.domain;
 
+import java.util.Arrays;
+
 public class Dog {
     private final String name;
     private final String breed;
-    private final String colour;
+    private final String[] colour;
 
-    public Dog(String name, String breed, String colour) {
+    public Dog(String name, String breed, String[] colour) {
 
         this.name = name;
         this.breed = breed;
@@ -20,7 +22,7 @@ public class Dog {
         return breed;
     }
 
-    public String getColour() {
+    public String[] getColour() {
         return colour;
     }
 
@@ -41,8 +43,13 @@ public class Dog {
             return this;
         }
 
-        public Dog andOfColour(String colour) {
+        public Dog andOfColour(String... colour) {
             return new Dog(name, breed, colour);
         }
+    }
+
+    @Override
+    public String toString() {
+        return name + " the  " + Arrays.toString(colour) + " " + breed ;
     }
 }
